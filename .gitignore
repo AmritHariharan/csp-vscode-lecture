@@ -1,0 +1,5 @@
+*.dSYM/*
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+delete_node

@@ -1,0 +1,46 @@
+{
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "g++ build debug",
+      "command": "/usr/bin/g++",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileBasenameNoExtension}"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+    },
+    {
+      "type": "shell",
+      "label": "g++ build release",
+      "command": "/usr/bin/g++",
+      "args": [
+        "${file}",
+        "-o",
+        "${fileBasenameNoExtension}"
+      ],
+      "group": "build"
+    },
+    {
+      "type": "shell",
+      "label": "run release",
+      "command": "${workspaceFolder}/${fileBasenameNoExtension}",
+      "args": [
+        "2"
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "dependsOn": [
+        "g++ build release"
+      ]
+    },
+  ],
+  "version": "2.0.0"
+}
